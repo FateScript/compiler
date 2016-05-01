@@ -84,12 +84,10 @@ white_word    [ \t]
 %%
 
 //以下为函数定义部分
-int main(int avgs, char *avgr[]) 
-{
+int main(int avgs, char *avgr[]) {
     yyin = fopen(avgr[1], "r");
     yyout = fopen("token.txt","w");
-    if (!yyin || !yyout)
-    {
+    if (!yyin || !yyout) {
         return 0;
     }
     yylex();
@@ -104,4 +102,6 @@ int main(int avgs, char *avgr[])
     return 1;
 }
 
-
+int yywrap() {
+    return 1;
+}
